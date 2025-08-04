@@ -1,0 +1,48 @@
+[reddit]
+client_id = your_reddit_client_id
+client_secret = your_reddit_client_secret
+user_agent = RedditDataPipeline/1.0 by yourusername
+
+[aws]
+access_key_id = your_aws_access_key
+secret_access_key = your_aws_secret_key
+region = us-east-1
+
+[s3]
+bucket_name = reddit-data-pipeline-bucket
+raw_data_prefix = raw-data/
+processed_data_prefix = processed-data/
+backup_prefix = backup/
+
+[redshift]
+host = your-redshift-cluster.redshift.amazonaws.com
+port = 5439
+database = reddit_analytics
+user = your_redshift_user
+password = your_redshift_password
+schema = public
+
+[glue]
+database_name = reddit_data_catalog
+crawler_name = reddit_data_crawler
+job_name = reddit_transform_job
+
+[pipeline]
+schedule_interval = @daily
+max_posts_per_subreddit = 1000
+max_comments_per_post = 500
+data_retention_days = 90
+batch_size = 100
+
+[subreddits]
+targets = technology,programming,datascience,MachineLearning,artificial,python,aws,analytics
+
+[notifications]
+slack_webhook_url = your_slack_webhook_url
+email_enabled = true
+alert_email = your_email@example.com
+sns_topic_arn = your_sns_topic_arn
+
+[logging]
+level = INFO
+format = %(asctime)s - %(name)s - %(levelname)s - %(message)s
