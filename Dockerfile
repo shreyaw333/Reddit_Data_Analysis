@@ -16,9 +16,9 @@ RUN apt-get update \
 # Switch back to airflow user
 USER airflow
 
-# Copy requirements and install Python dependencies
-COPY requirements.txt /requirements.txt
-RUN pip install --no-cache-dir -r /requirements.txt
+# Copy minimal requirements and install Python dependencies
+COPY requirements-docker.txt /requirements-docker.txt
+RUN pip install --no-cache-dir -r /requirements-docker.txt
 
 # Copy project files
 COPY --chown=airflow:root dags/ /opt/airflow/dags/
