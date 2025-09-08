@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
 
-const RedditDashboard = () => {
-  // Sample data - you'll replace this with API calls to your backend
+function App() {
   const [dashboardData, setDashboardData] = useState({
     totalPosts: 47200,
     activeSubreddits: 156,
@@ -347,6 +346,6 @@ const RedditDashboard = () => {
       </div>
     </div>
   );
-};
+}
 
-export default RedditDashboard;
+export default App;
